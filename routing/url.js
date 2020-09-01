@@ -13,6 +13,7 @@ router.get('/updateNoOfOrders',(req,res,next)=>{
         }
         },{
           $project:{
+            _id:0,
             userId:"$_id.userId",
             noOfOrders:1
             }
@@ -75,6 +76,7 @@ router.get('/orderDetails',(req,res)=>{
     // Stage 4
     {
       $project: {
+        _id:0,
       userId:"$_id.userId",
       name:{$arrayElemAt:["$userData.name",0]},
       noOfOrders:1,
